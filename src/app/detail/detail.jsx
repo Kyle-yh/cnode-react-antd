@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {crtTimeFtt} from '../../utils/utils.js'
 import Replie from '../component/replie'
 import {getDetail} from '../../utils/api'
-import { Input,Button,message } from 'antd';
+import { Input,Button,messag,Icon } from 'antd';
 import {sendReplies} from '../../utils/api'
 const { TextArea } = Input;
 class Detail extends Component{
@@ -72,6 +72,10 @@ class Detail extends Component{
                         <span className="mgr-10">{visit_count}人看过</span>
                         <span className="mgr-10">创建时间：{create_time}</span>
                         <span className="mgr-10">最后一次查看：{last_reply_time}</span>
+                        <span className="mgr-10">
+                            <Icon type="star pointer text-theme2" />
+                            <span>收藏文章</span>
+                        </span>
                     </div>
                 </div>
                 <div className="content">
