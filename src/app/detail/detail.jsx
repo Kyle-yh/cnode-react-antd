@@ -3,7 +3,7 @@ import {crtTimeFtt} from '../../utils/utils.js'
 import Replie from '../component/replie'
 import {getDetail} from '../../utils/api'
 import { Input,Button,message,Icon } from 'antd';
-import {sendReplies} from '../../utils/api'
+import {sendReplies,collect} from '../../utils/api'
 const { TextArea } = Input;
 class Detail extends Component{
     constructor(props){
@@ -29,6 +29,26 @@ class Detail extends Component{
         
         this.setState({
             text:e.target.value
+        })
+    }
+
+    collect(){
+        var accesstoken = window.sessionStorage.getItem("accesstoken")
+        var data = {
+            accesstoken,
+            content:this.state.id,
+        }
+        collect(data).then((res)=>{
+            console.log(res)
+            if(res.success){
+                
+            }else{
+                const {history} = this.props;
+                message.warn(res.error_msg)
+                setTimeout(() => {
+                    history.replace("/login");
+                }, 1000)
+            }
         })
     }
 
@@ -72,7 +92,7 @@ class Detail extends Component{
                         <span className="mgr-10">{visit_count}人看过</span>
                         <span className="mgr-10">创建时间：{create_time}</span>
                         <span className="mgr-10">最后一次查看：{last_reply_time}</span>
-                        <span className="mgr-10 pointer text-theme2">
+                        <span className="mgr-10 pointer text-theme2" onClick={this.collect.bind(this)}>
                             <Icon type="star" />
                             <span>收藏文章</span>
                         </span>

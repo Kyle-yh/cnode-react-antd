@@ -23,6 +23,10 @@ const sendReplies = (data,id) =>{
 const thumbUp = (data,reply_id) => {
     return request(`/reply/${reply_id}/ups`,data,'post')
 }
+// 收藏
+const collect = (data) => {
+    return request(`/topic_collect/de_collect`,data,'post')
+}
 
 
 export{
@@ -31,5 +35,6 @@ export{
     login,
     getMine,
     sendReplies,
-    thumbUp
+    thumbUp,
+    collect
 }
