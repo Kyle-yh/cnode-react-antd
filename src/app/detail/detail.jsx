@@ -72,8 +72,8 @@ class Detail extends Component{
                         <span className="mgr-10">{visit_count}人看过</span>
                         <span className="mgr-10">创建时间：{create_time}</span>
                         <span className="mgr-10">最后一次查看：{last_reply_time}</span>
-                        <span className="mgr-10">
-                            <Icon type="star pointer text-theme2" />
+                        <span className="mgr-10 pointer text-theme2">
+                            <Icon type="star" />
                             <span>收藏文章</span>
                         </span>
                     </div>
