@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {crtTimeFtt} from '../../utils/utils.js'
 import Replie from '../component/replie'
 import {getDetail} from '../../utils/api'
-import { Input,Button,messag,Icon } from 'antd';
+import { Input,Button,message,Icon } from 'antd';
 import {sendReplies} from '../../utils/api'
 const { TextArea } = Input;
 class Detail extends Component{
