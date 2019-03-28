@@ -36,18 +36,14 @@ class Detail extends Component{
         var accesstoken = window.sessionStorage.getItem("accesstoken")
         var data = {
             accesstoken,
-            content:this.state.id,
+            topic_id:this.state.id,
         }
         collect(data).then((res)=>{
             console.log(res)
             if(res.success){
-                
+                message.success('收藏成功')
             }else{
-                const {history} = this.props;
-                message.warn(res.error_msg)
-                setTimeout(() => {
-                    history.replace("/login");
-                }, 1000)
+                message.error('收藏失败')
             }
         })
     }
