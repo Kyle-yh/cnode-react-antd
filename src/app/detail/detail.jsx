@@ -67,9 +67,13 @@ class Detail extends Component{
     }
 
     componentWillMount(){
-        this.getDetail(this.state.id)
+        
     }
 
+    componentDidMount(){
+        this.getDetail(this.state.id)
+
+    }
     render(){
         let { author,author_id,content,create_at,good,id,is_collect,last_reply_at,reply_count,tab,title,top,visit_count,replies }= this.state.detail
         let create_time =  crtTimeFtt(create_at)
